@@ -11,6 +11,7 @@ let formMessage = document.getElementById('formMessage');
 const btnMessage = document.getElementById('btnMessage');
 const sendLoading = document.getElementById('send-loading');
 const messageList = document.getElementById('tinyslider-container-message');
+const audio = document.querySelector('#audio');
 
 document.addEventListener('DOMContentLoaded', function() {
     /* 
@@ -41,8 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // btn sound and open the opening
     const btn_open = document.querySelector('#btn-open-opening');
     const btn_play = document.querySelector('#btn-play');
-    const audio = document.querySelector('#audio');
-    audio.play();
+
+    setTimeout(() => {
+        audio.play();
+    }, 2000);
+    
     btn_open.addEventListener('click', function(e) {
         for(let aos of document.querySelectorAll('.aos-init')) {
             aos.classList.remove('aos-animate');
@@ -50,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             AOS.refresh();
         }, 2000);
-
     })
     btn_play.addEventListener('click', function() {
         if (audio.paused) {
